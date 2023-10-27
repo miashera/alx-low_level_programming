@@ -1,15 +1,15 @@
 #include "main.h"
 /**
- * set_bit - set a bit given
- * @n: ...
- * @index: ...
+ * clear_bit - set the value of any given bit to 0
+ * @n: the pointer to the bit changed
+ * @index: index bit
  * Return: 1(success) -1 for anything else
  */
-int set_bit(unsigned long int *n, unsigned int index)
+int clear_bit(unsigned long int *n, unsigned int index)
 {
 	if (index > 63)
 		return (-1);
 
-	*n = ((1UL << index) | *n);
+	*n = (~(1UL << index) & *n);
 	return (1);
 }
